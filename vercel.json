@@ -1,12 +1,6 @@
 {
-  "version": 2,
-  "name": "basefy-institucional",
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "/index.html"
-    }
-  ],
+  "cleanUrls": true,
+  "trailingSlash": false,
   "headers": [
     {
       "source": "/(.*)",

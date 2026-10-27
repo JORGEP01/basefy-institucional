@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Basefy | Marketplace Oficial de Ativos Digitais & Software</title>
-  <meta name="description" content="Plataforma oficial da Basefy. Intermediação segura de ferramentas digitais, créditos de inteligência artificial e ativos para desenvolvedores com entrega imediata e garantia de 7 dias.">
+  <title>Basefy | Ferramentas Digitais, Softwares e Créditos de IA</title>
+  <meta name="description" content="Portal oficial da Basefy. Acesso a ferramentas digitais, softwares de desenvolvimento e créditos de inteligência artificial com ativação imediata e garantia de 7 dias.">
   <meta name="robots" content="index, follow">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -29,6 +29,10 @@
       box-sizing: border-box;
       margin: 0;
       padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
@@ -155,6 +159,8 @@
       text-decoration: none;
       box-shadow: 0 4px 20px rgba(0, 229, 255, 0.25);
       transition: all 0.15s ease;
+      cursor: pointer;
+      border: none;
     }
     .btn-main:hover {
       background: #33ebff;
@@ -188,6 +194,7 @@
       text-decoration: none;
       color: inherit;
       transition: all 0.15s ease;
+      cursor: pointer;
     }
     .cat-row:hover {
       background: var(--card-hover);
@@ -216,6 +223,69 @@
       color: var(--cyan);
       font-size: 15px;
       font-weight: 700;
+    }
+
+    /* Interactive Catalog Grid */
+    #catalogo {
+      scroll-margin-top: 20px;
+      margin-bottom: 32px;
+    }
+    .product-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 10px;
+    }
+    .prod-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .prod-card:hover {
+      border-color: rgba(0, 229, 255, 0.3);
+    }
+    .prod-name {
+      font-family: var(--font-display);
+      font-size: 14px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+    .prod-desc {
+      font-size: 12px;
+      color: var(--text-muted);
+      line-height: 1.45;
+    }
+    .prod-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      padding-top: 10px;
+      font-size: 11px;
+    }
+    .prod-badge {
+      color: var(--green);
+      font-weight: 700;
+    }
+    .prod-btn {
+      background: rgba(0, 229, 255, 0.1);
+      border: 1px solid rgba(0, 229, 255, 0.25);
+      color: var(--cyan);
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 11px;
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .prod-btn:hover {
+      background: rgba(0, 229, 255, 0.2);
     }
 
     /* Trust Pill Bar */
@@ -291,7 +361,7 @@
       color: var(--cyan);
     }
 
-    /* Minimal Modal */
+    /* Modal for Support/Request */
     .modal-overlay {
       position: fixed;
       inset: 0;
@@ -310,10 +380,8 @@
       background: var(--card);
       border: 1px solid var(--border);
       border-radius: 12px;
-      max-width: 560px;
+      max-width: 500px;
       width: 100%;
-      max-height: 80vh;
-      overflow-y: auto;
       padding: 24px;
     }
     .modal-header {
@@ -342,17 +410,15 @@
     .modal-content {
       font-size: 13px;
       color: var(--text-muted);
-      line-height: 1.65;
-    }
-    .modal-content h4 {
-      color: #fff;
-      font-size: 14px;
-      margin: 14px 0 4px;
+      line-height: 1.6;
     }
 
     @media (max-width: 600px) {
       .hero h1 {
         font-size: 26px;
+      }
+      .product-grid {
+        grid-template-columns: 1fr;
       }
       .trust-bar {
         grid-template-columns: 1fr;
@@ -374,7 +440,7 @@
   <div class="wrapper">
     <!-- Header -->
     <header>
-      <a href="https://basefy.io" class="logo">
+      <a href="/" class="logo">
         <div class="logo-mark">B</div>
         <div>Base<span>fy</span></div>
       </a>
@@ -388,21 +454,21 @@
       <div class="hero">
         <div class="hero-tag">Portal Oficial Basefy</div>
         <h1>
-          Marketplace de Ferramentas Digitais, <span>IA e Software.</span>
+          Acesso a Ferramentas Digitais, <span>Softwares e IA.</span>
         </h1>
         <p>
-          Intermediação segura de contas para desenvolvedores, ferramentas de software e créditos de inteligência artificial com entrega digital imediata e garantia incondicional de 7 dias.
+          A Basefy intermedia o acesso a ferramentas para desenvolvedores, softwares profissionais e créditos de inteligência artificial com ativação ágil e garantia incondicional de 7 dias.
         </p>
 
-        <a href="https://basefy.io" target="_blank" rel="noopener noreferrer" class="btn-main">
-          Acessar Catálogo no Marketplace ↗
+        <a href="#catalogo" class="btn-main">
+          Ver Catálogo de Ferramentas ↓
         </a>
       </div>
 
       <!-- Categories -->
-      <div class="section-label">Categorias no Marketplace</div>
+      <div class="section-label">Categorias Principais</div>
       <div class="cat-list">
-        <a href="https://basefy.io" target="_blank" rel="noopener noreferrer" class="cat-row">
+        <div class="cat-row" onclick="scrollToCatalog()">
           <div class="cat-info">
             <span class="cat-icon">🤖</span>
             <div>
@@ -410,21 +476,21 @@
               <div class="cat-sub">Lovable Pro, Google Gemini 1.5 Pro, Cursor e modelos generativos</div>
             </div>
           </div>
-          <span class="cat-arrow">→</span>
-        </a>
+          <span class="cat-arrow">↓</span>
+        </div>
 
-        <a href="https://basefy.io" target="_blank" rel="noopener noreferrer" class="cat-row">
+        <div class="cat-row" onclick="scrollToCatalog()">
           <div class="cat-info">
-            <span class="cat-icon">🛡️</span>
+            <span class="cat-icon">💻</span>
             <div>
-              <div class="cat-title">Contas & Estrutura Digital</div>
-              <div class="cat-sub">Contas com autenticação 2FA, Business Managers e estruturas de teste</div>
+              <div class="cat-title">Ambientes de Desenvolvimento</div>
+              <div class="cat-sub">Ferramentas de código, ambientes de teste, webhooks e automação</div>
             </div>
           </div>
-          <span class="cat-arrow">→</span>
-        </a>
+          <span class="cat-arrow">↓</span>
+        </div>
 
-        <a href="https://basefy.io" target="_blank" rel="noopener noreferrer" class="cat-row">
+        <div class="cat-row" onclick="scrollToCatalog()">
           <div class="cat-info">
             <span class="cat-icon">🎨</span>
             <div>
@@ -432,19 +498,69 @@
               <div class="cat-sub">Figma EDU Pro, softwares visuais e armazenamento em nuvem</div>
             </div>
           </div>
-          <span class="cat-arrow">→</span>
-        </a>
+          <span class="cat-arrow">↓</span>
+        </div>
 
-        <a href="https://basefy.io" target="_blank" rel="noopener noreferrer" class="cat-row">
+        <div class="cat-row" onclick="scrollToCatalog()">
           <div class="cat-info">
             <span class="cat-icon">📚</span>
             <div>
               <div class="cat-title">Treinamentos & Métodos Técnicos</div>
-              <div class="cat-sub">Manuais operacionais, documentações e frameworks de automação</div>
+              <div class="cat-sub">Manuais operacionais, documentações de software e metodologias</div>
             </div>
           </div>
-          <span class="cat-arrow">→</span>
-        </a>
+          <span class="cat-arrow">↓</span>
+        </div>
+      </div>
+
+      <!-- Interactive Internal Catalog -->
+      <div id="catalogo">
+        <div class="section-label">Recursos em Destaque</div>
+        <div class="product-grid">
+          <div class="prod-card">
+            <div>
+              <div class="prod-name">Lovable Pro & Créditos IA</div>
+              <div class="prod-desc">Ambiente ágil de desenvolvimento com inteligência artificial para criação de aplicações web.</div>
+            </div>
+            <div class="prod-meta">
+              <span class="prod-badge">● Ativação Rápida</span>
+              <button onclick="openRequestModal('Lovable Pro')" class="prod-btn">Consultar</button>
+            </div>
+          </div>
+
+          <div class="prod-card">
+            <div>
+              <div class="prod-name">Google Gemini 1.5 Pro + 5TB</div>
+              <div class="prod-desc">Modelo avançado multimodal com 5TB de armazenamento corporativo em nuvem.</div>
+            </div>
+            <div class="prod-meta">
+              <span class="prod-badge">● Licença Ativa</span>
+              <button onclick="openRequestModal('Gemini 1.5 Pro')" class="prod-btn">Consultar</button>
+            </div>
+          </div>
+
+          <div class="prod-card">
+            <div>
+              <div class="prod-name">Figma EDU Pro Anual</div>
+              <div class="prod-desc">Ferramenta líder para criação de interfaces, prototipagem colaborativa e design systems.</div>
+            </div>
+            <div class="prod-meta">
+              <span class="prod-badge">● 3.000 Créditos IA</span>
+              <button onclick="openRequestModal('Figma EDU Pro')" class="prod-btn">Consultar</button>
+            </div>
+          </div>
+
+          <div class="prod-card">
+            <div>
+              <div class="prod-name">Ambientes Dev & Automação</div>
+              <div class="prod-desc">Estruturas completas para testes de integração, webhooks e APIs de comunicação.</div>
+            </div>
+            <div class="prod-meta">
+              <span class="prod-badge">● Suporte Incluso</span>
+              <button onclick="openRequestModal('Ambientes Dev')" class="prod-btn">Consultar</button>
+            </div>
+          </div>
+        </div>
       </div>
 
       <!-- Trust Pillars -->
@@ -466,69 +582,52 @@
       <!-- Support Bar -->
       <div class="support-bar">
         <div>
-          Precisa de suporte ou tem dúvidas sobre um pedido?
+          Precisa de suporte ou tem dúvidas sobre um produto?
         </div>
         <a href="mailto:suporte@basefy.io">suporte@basefy.io</a>
       </div>
     </main>
 
-    <!-- Footer -->
+    <!-- Footer with REAL Standalone Links -->
     <footer>
       <div>
         © 2026 Basefy Marketplace. Todos os direitos reservados.
       </div>
       <div class="footer-links">
-        <a href="javascript:void(0)" onclick="openModal('m-termos')">Termos</a>
-        <a href="javascript:void(0)" onclick="openModal('m-privacidade')">Privacidade</a>
-        <a href="javascript:void(0)" onclick="openModal('m-reembolso')">Reembolso</a>
+        <a href="/termos">Termos de Uso</a>
+        <a href="/privacidade">Política de Privacidade</a>
+        <a href="/reembolso">Política de Reembolso</a>
       </div>
     </footer>
   </div>
 
-  <!-- Modal: Termos -->
-  <div class="modal-overlay" id="m-termos" onclick="closeOnBg(event, 'm-termos')">
+  <!-- Modal: Request Product Info -->
+  <div class="modal-overlay" id="modal-request" onclick="closeOnBg(event, 'modal-request')">
     <div class="modal-body">
       <div class="modal-header">
-        <h3>Termos de Uso</h3>
-        <button class="modal-close" onclick="closeModal('m-termos')">×</button>
+        <h3 id="modal-prod-title">Consultar Produto</h3>
+        <button class="modal-close" onclick="closeModal('modal-request')">×</button>
       </div>
       <div class="modal-content">
-        <p>A Basefy opera como intermediadora de tecnologia para compra de ferramentas, softwares e ativos digitais. Todas as transações são protegidas por custódia financeira, liberando o valor ao fornecedor apenas após a confirmação da entrega e expiração do prazo de validação técnica.</p>
-        <h4>Condições de Compra</h4>
-        <p>O usuário se compromete a utilizar as ferramentas de forma lícita, de acordo com as leis aplicáveis e especificações fornecidas em cada produto.</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- Modal: Privacidade -->
-  <div class="modal-overlay" id="m-privacidade" onclick="closeOnBg(event, 'm-privacidade')">
-    <div class="modal-body">
-      <div class="modal-header">
-        <h3>Política de Privacidade (LGPD)</h3>
-        <button class="modal-close" onclick="closeModal('m-privacidade')">×</button>
-      </div>
-      <div class="modal-content">
-        <p>Em conformidade com a Lei Geral de Proteção de Dados (Lei 13.709/2018), coletamos apenas as informações mínimas necessárias para processamento de pagamentos e liberação dos acessos digitais. Não compartilhamos nem comercializamos dados de clientes com terceiros.</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- Modal: Reembolso -->
-  <div class="modal-overlay" id="m-reembolso" onclick="closeOnBg(event, 'm-reembolso')">
-    <div class="modal-body">
-      <div class="modal-header">
-        <h3>Garantia & Reembolso</h3>
-        <button class="modal-close" onclick="closeModal('m-reembolso')">×</button>
-      </div>
-      <div class="modal-content">
-        <p>Conforme previsto no Artigo 49 do Código de Defesa do Consumidor, o comprador tem direito a 7 dias de garantia incondicional. Caso o ativo ou ferramenta digital entregue apresente qualquer defeito ou incompatibilidade, garantimos a substituição imediata ou o estorno total do valor pago. Contato: suporte@basefy.io.</p>
+        <p style="margin-bottom: 12px;">Para consultar a disponibilidade imediata ou solicitar acesso a esta ferramenta, entre em contato com nossa equipe técnica:</p>
+        <div style="background: rgba(0, 229, 255, 0.08); border: 1px solid rgba(0, 229, 255, 0.25); border-radius: 8px; padding: 14px; text-align: center; margin-bottom: 14px;">
+          <div style="font-size: 11px; color: var(--text-dim); text-transform: uppercase;">E-mail do Suporte Oficial</div>
+          <div style="font-size: 16px; font-weight: 800; color: var(--cyan); margin-top: 2px;">suporte@basefy.io</div>
+        </div>
+        <p style="font-size: 12px; color: var(--text-dim);">Atendimento de Segunda a Sexta das 08h às 20h e Sábados das 09h às 14h (BRT). Resposta em menos de 30 minutos.</p>
       </div>
     </div>
   </div>
 
   <script>
-    function openModal(id) {
-      document.getElementById(id).classList.add('open');
+    function scrollToCatalog() {
+      const el = document.getElementById('catalogo');
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function openRequestModal(prodName) {
+      document.getElementById('modal-prod-title').textContent = 'Consultar: ' + prodName;
+      document.getElementById('modal-request').classList.add('open');
       document.body.style.overflow = 'hidden';
     }
 
