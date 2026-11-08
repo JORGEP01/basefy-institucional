@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Basefy | Marketplace de Ferramentas Digitais, Softwares e Créditos IA</title>
+  <meta name="description" content="Acesse o marketplace oficial da Basefy. Encontre ferramentas de inteligência artificial, softwares profissionais, créditos IA e automações com entrega imediata e saldo protegido.">
+  <meta name="robots" content="index, follow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #070b12;
+      --card: #0f1624;
+      --card-hover: #151f33;
+      --card-border: #1e293b;
+      --cyan: #00e5ff;
+      --cyan-hover: #33ebff;
+      --blue: #1877f2;
+      --purple: #7b61ff;
+      --green: #10b981;
+      --gold: #f59e0b;
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+      --text-dim: #64748b;
+      --font-display: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.5;
+      padding-bottom: 70px;
+    }
+
+    .wrapper {
+      max-width: 860px;
+      margin: 0 auto;
+      width: 100%;
+      padding: 20px 20px 40px;
+    }
+
+    /* HEADER */
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 20px;
+      margin-bottom: 28px;
+      border-bottom: 1px solid var(--card-border);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: 20px;
+      font-weight: 900;
+      letter-spacing: -0.02em;
+    }
+
+    .logo-mark {
+      width: 36px;
+      height: 36px;
+      border-radius: 9px;
+      background: linear-gradient(135deg, var(--cyan), var(--blue));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      color: #070b12;
+      font-size: 18px;
+      box-shadow: 0 4px 14px rgba(0, 229, 255, 0.3);
+    }
+
+    .logo span {
+      color: var(--cyan);
+    }
+
+    .header-cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(0, 229, 255, 0.1);
+      border: 1px solid rgba(0, 229, 255, 0.3);
+      color: var(--cyan);
+      font-family: var(--font-display);
+      font-size: 13px;
+      font-weight: 700;
+      padding: 8px 16px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    .header-cta-btn:hover {
+      background: var(--cyan);
+      color: #070b12;
+      box-shadow: 0 4px 14px rgba(0, 229, 255, 0.35);
+      transform: translateY(-1px);
+    }
+
+    /* HERO SECTION */
+    .hero {
+      text-align: center;
+      padding: 10px 0 32px;
+    }
+
+    .live-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(16, 185, 129, 0.1);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      color: var(--green);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 20px;
+      margin-bottom: 20px;
+    }
+
+    .live-dot {
+      width: 7px;
+      height: 7px;
+      background: var(--green);
+      border-radius: 50%;
+      box-shadow: 0 0 8px var(--green);
+      animation: pulse 1.8s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.85); }
+    }
+
+    .hero h1 {
+      font-family: var(--font-display);
+      font-size: 38px;
+      font-weight: 900;
+      line-height: 1.18;
+      letter-spacing: -0.03em;
+      color: #fff;
+      margin-bottom: 16px;
+    }
+
+    .hero h1 span {
+      background: linear-gradient(135deg, var(--cyan), #60a5fa);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero p {
+      font-size: 16px;
+      color: var(--text-muted);
+      line-height: 1.6;
+      max-width: 680px;
+      margin: 0 auto 28px;
+    }
+
+    /* BIG CTA BUTTON */
+    .cta-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 36px;
+    }
+
+    .btn-marketplace {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      width: 100%;
+      max-width: 460px;
+      padding: 18px 36px;
+      background: linear-gradient(135deg, var(--cyan), #00c3ff);
+      color: #060e1a;
+      font-family: var(--font-display);
+      font-size: 18px;
+      font-weight: 900;
+      letter-spacing: -0.01em;
+      border-radius: 12px;
+      text-decoration: none;
+      box-shadow: 0 8px 30px rgba(0, 229, 255, 0.35);
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-marketplace:hover {
+      background: linear-gradient(135deg, #33ebff, var(--cyan));
+      transform: translateY(-2px);
+      box-shadow: 0 12px 38px rgba(0, 229, 255, 0.5);
+    }
+
+    .btn-marketplace:active {
+      transform: translateY(0);
+    }
+
+    .cta-subtext {
+      font-size: 12px;
+      color: var(--text-dim);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* TRUST PILLARS BAR */
+    .trust-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-bottom: 40px;
+    }
+
+    .trust-card {
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 18px 16px;
+      text-align: center;
+      transition: all 0.2s ease;
+    }
+
+    .trust-card:hover {
+      border-color: rgba(0, 229, 255, 0.3);
+      transform: translateY(-2px);
+    }
+
+    .trust-icon {
+      font-size: 24px;
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .trust-title {
+      font-family: var(--font-display);
+      font-size: 13px;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+
+    .trust-desc {
+      font-size: 11px;
+      color: var(--text-muted);
+      line-height: 1.45;
+    }
+
+    /* SECTION LABELS */
+    .section-head {
+      margin-bottom: 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: 20px;
+      font-weight: 800;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .section-badge {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--cyan);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* CATEGORIES & TOP PRODUCTS GRID */
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+      margin-bottom: 40px;
+    }
+
+    .product-card {
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      border-radius: 14px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 16px;
+      transition: all 0.2s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .product-card:hover {
+      border-color: rgba(0, 229, 255, 0.4);
+      background: var(--card-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 26px rgba(0, 0, 0, 0.35);
+    }
+
+    .prod-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .prod-tag {
+      font-size: 10px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 4px 10px;
+      border-radius: 6px;
+      width: fit-content;
+    }
+
+    .tag-ai { background: rgba(123, 97, 255, 0.15); color: #c0b4ff; border: 1px solid rgba(123, 97, 255, 0.3); }
+    .tag-dev { background: rgba(0, 229, 255, 0.12); color: var(--cyan); border: 1px solid rgba(0, 229, 255, 0.25); }
+    .tag-design { background: rgba(245, 158, 11, 0.12); color: #fcd34d; border: 1px solid rgba(245, 158, 11, 0.25); }
+    .tag-traffic { background: rgba(16, 185, 129, 0.12); color: #6ee7b7; border: 1px solid rgba(16, 185, 129, 0.25); }
+
+    .prod-status {
+      font-size: 11px;
+      color: var(--green);
+      font-weight: 700;
+    }
+
+    .prod-title {
+      font-family: var(--font-display);
+      font-size: 16px;
+      font-weight: 800;
+      color: #fff;
+      margin-top: 10px;
+      margin-bottom: 6px;
+      line-height: 1.35;
+    }
+
+    .prod-desc {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .prod-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      padding-top: 14px;
+    }
+
+    .prod-price-box {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .prod-price-label {
+      font-size: 10px;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .prod-price {
+      font-family: var(--font-display);
+      font-size: 16px;
+      font-weight: 900;
+      color: var(--green);
+    }
+
+    .prod-cta-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--cyan);
+      background: rgba(0, 229, 255, 0.08);
+      border: 1px solid rgba(0, 229, 255, 0.25);
+      padding: 6px 14px;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: all 0.15s ease;
+    }
+
+    .prod-cta-link:hover {
+      background: var(--cyan);
+      color: #070b12;
+      box-shadow: 0 4px 12px rgba(0, 229, 255, 0.3);
+    }
+
+    /* HOW IT WORKS */
+    .how-box {
+      background: linear-gradient(135deg, rgba(24, 119, 242, 0.08), rgba(123, 97, 255, 0.06));
+      border: 1px solid rgba(24, 119, 242, 0.25);
+      border-radius: 16px;
+      padding: 28px 24px;
+      margin-bottom: 40px;
+    }
+
+    .how-header {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+
+    .how-header h3 {
+      font-family: var(--font-display);
+      font-size: 20px;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 6px;
+    }
+
+    .how-header p {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .steps-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .step-card {
+      background: rgba(0, 0, 0, 0.35);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 12px;
+      padding: 18px 16px;
+      text-align: center;
+    }
+
+    .step-number {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--cyan);
+      color: #070b12;
+      font-weight: 900;
+      font-size: 13px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 10px;
+    }
+
+    .step-title {
+      font-family: var(--font-display);
+      font-size: 14px;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+
+    .step-desc {
+      font-size: 12px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* BOTTOM CTA BANNER */
+    .banner-cta {
+      background: linear-gradient(135deg, rgba(0, 229, 255, 0.12), rgba(24, 119, 242, 0.15));
+      border: 1px solid rgba(0, 229, 255, 0.35);
+      border-radius: 18px;
+      padding: 34px 28px;
+      text-align: center;
+      margin-bottom: 40px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 10px 36px rgba(0, 229, 255, 0.15);
+    }
+
+    .banner-cta h2 {
+      font-family: var(--font-display);
+      font-size: 26px;
+      font-weight: 900;
+      color: #fff;
+      margin-bottom: 10px;
+      line-height: 1.25;
+    }
+
+    .banner-cta p {
+      font-size: 14px;
+      color: var(--text-muted);
+      max-width: 580px;
+      margin: 0 auto 24px;
+      line-height: 1.55;
+    }
+
+    /* FAQ ACCORDION */
+    .faq-section {
+      margin-bottom: 40px;
+    }
+
+    .faq-title {
+      font-family: var(--font-display);
+      font-size: 18px;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 16px;
+      text-align: center;
+    }
+
+    .faq-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .faq-item {
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      border-radius: 10px;
+      padding: 16px 18px;
+    }
+
+    .faq-q {
+      font-family: var(--font-display);
+      font-size: 14px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 6px;
+    }
+
+    .faq-a {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.55;
+    }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--card-border);
+      padding-top: 24px;
+      font-size: 12px;
+      color: var(--text-dim);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 18px;
+    }
+
+    .footer-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+
+    .footer-links a:hover {
+      color: var(--cyan);
+    }
+
+    /* MOBILE STICKY BOTTOM BAR */
+    .sticky-bottom-bar {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(7, 11, 18, 0.95);
+      backdrop-filter: blur(10px);
+      border-top: 1px solid var(--card-border);
+      padding: 10px 16px;
+      z-index: 100;
+      box-shadow: 0 -6px 20px rgba(0, 0, 0, 0.5);
+    }
+
+    .sticky-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      padding: 14px 20px;
+      background: var(--cyan);
+      color: #070b12;
+      font-family: var(--font-display);
+      font-size: 16px;
+      font-weight: 900;
+      border-radius: 10px;
+      text-decoration: none;
+      box-shadow: 0 4px 18px rgba(0, 229, 255, 0.4);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 28px;
+      }
+      .trust-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .products-grid {
+        grid-template-columns: 1fr;
+      }
+      .steps-row {
+        grid-template-columns: 1fr;
+      }
+      .sticky-bottom-bar {
+        display: block;
+      }
+      footer {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .footer-links {
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="wrapper">
+    <!-- HEADER -->
+    <header>
+      <a href="https://basefy.io" class="logo">
+        <div class="logo-mark">B</div>
+        <div>Base<span>fy</span></div>
+      </a>
+      <a href="https://basefy.io" class="header-cta-btn">
+        Ver Marketplace ➔
+      </a>
+    </header>
+
+    <!-- HERO -->
+    <main>
+      <section class="hero">
+        <div class="live-badge">
+          <span class="live-dot"></span>
+          Marketplace Oficial Verificado · Entrega Imediata
+        </div>
+
+        <h1>
+          Economize até 70% em <span>Ferramentas Digitais, Softwares e Créditos IA</span>
+        </h1>
+
+        <p>
+          A Basefy intermedia o acesso a ferramentas para desenvolvedores, criadores de conteúdo, gestores de tráfego e agências. Compre com saldo 100% protegido e ativação imediata.
+        </p>
+
+        <div class="cta-container">
+          <a href="https://basefy.io" class="btn-marketplace" id="btn-hero-cta">
+            Ver Marketplace Completo ➔
+          </a>
+          <div class="cta-subtext">
+            <span>🔒 Saldo protegido pela Basefy</span> · 
+            <span>⚡ Acesso em segundos</span> · 
+            <span>🛡️ Garantia de 7 dias</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- TRUST PILLARS -->
+      <section class="trust-grid">
+        <div class="trust-card">
+          <span class="trust-icon">🛡️</span>
+          <div class="trust-title">Saldo Protegido</div>
+          <div class="trust-desc">O vendedor só recebe o saldo após você testar e validar o produto.</div>
+        </div>
+
+        <div class="trust-card">
+          <span class="trust-icon">⚡</span>
+          <div class="trust-title">Entrega Digital Imediata</div>
+          <div class="trust-desc">Acesso liberado diretamente no painel e no seu e-mail após a compra.</div>
+        </div>
+
+        <div class="trust-card">
+          <span class="trust-icon">⭐</span>
+          <div class="trust-title">Fornecedores Avaliados</div>
+          <div class="trust-desc">Classificação por clientes reais com histórico público de reputação.</div>
+        </div>
+
+        <div class="trust-card">
+          <span class="trust-icon">🔄</span>
+          <div class="trust-title">Garantia Incondicional</div>
+          <div class="trust-desc">7 dias para testar ou estorno integral do seu saldo (Art. 49 CDC).</div>
+        </div>
+      </section>
+
+      <!-- POPULAR PRODUCTS PREVIEW -->
+      <section>
+        <div class="section-head">
+          <div class="section-title">
+            🚀 Recursos Mais Buscados no Marketplace
+          </div>
+          <span class="section-badge">Catálogo Atualizado</span>
+        </div>
+
+        <div class="products-grid">
+          <!-- 1. LOVABLE PRO -->
+          <div class="product-card">
+            <div>
+              <div class="prod-top">
+                <span class="prod-tag tag-ai">🤖 IA & Desenvolvimento</span>
+                <span class="prod-status">● Disponível</span>
+              </div>
+              <div class="prod-title">Lovable Pro Lite & Créditos IA (12 Meses)</div>
+              <div class="prod-desc">Ambiente ágil para criação de aplicações completas com inteligência artificial sem fricção.</div>
+            </div>
+            <div class="prod-footer">
+              <div class="prod-price-box">
+                <span class="prod-price-label">Oferta no Marketplace</span>
+                <span class="prod-price">Economia de até 65%</span>
+              </div>
+              <a href="https://basefy.io" class="prod-cta-link">Ver Oferta ➔</a>
+            </div>
+          </div>
+
+          <!-- 2. GEMINI PRO -->
+          <div class="product-card">
+            <div>
+              <div class="prod-top">
+                <span class="prod-tag tag-ai">🧠 Modelos IA & Cloud</span>
+                <span class="prod-status">● Disponível</span>
+              </div>
+              <div class="prod-title">Google Gemini 1.5 Pro + 5TB Cloud (18M)</div>
+              <div class="prod-desc">Janela de 2 milhões de tokens para contexto gigantesco e 5TB de espaço em nuvem dedicado.</div>
+            </div>
+            <div class="prod-footer">
+              <div class="prod-price-box">
+                <span class="prod-price-label">Oferta no Marketplace</span>
+                <span class="prod-price">Economia de até 70%</span>
+              </div>
+              <a href="https://basefy.io" class="prod-cta-link">Ver Oferta ➔</a>
+            </div>
+          </div>
+
+          <!-- 3. FIGMA EDU PRO -->
+          <div class="product-card">
+            <div>
+              <div class="prod-top">
+                <span class="prod-tag tag-design">🎨 Design & UI/UX</span>
+                <span class="prod-status">● Disponível</span>
+              </div>
+              <div class="prod-title">Figma EDU Pro - 1 Ano (3.000 Créditos IA)</div>
+              <div class="prod-desc">Acesso profissional para designers com ferramentas de colaboração, prototipagem e créditos IA.</div>
+            </div>
+            <div class="prod-footer">
+              <div class="prod-price-box">
+                <span class="prod-price-label">Oferta no Marketplace</span>
+                <span class="prod-price">A partir de R$ 44,90</span>
+              </div>
+              <a href="https://basefy.io" class="prod-cta-link">Ver Oferta ➔</a>
+            </div>
+          </div>
+
+          <!-- 4. CAPCUT PRO TEAM -->
+          <div class="product-card">
+            <div>
+              <div class="prod-top">
+                <span class="prod-tag tag-design">🎬 Edição de Vídeo</span>
+                <span class="prod-status">● Disponível</span>
+              </div>
+              <div class="prod-title">CapCut Pro Team - Conta Privada 4K</div>
+              <div class="prod-desc">Exportação em 4K sem marca d'água, legendas por inteligência artificial e biblioteca completa de efeitos.</div>
+            </div>
+            <div class="prod-footer">
+              <div class="prod-price-box">
+                <span class="prod-price-label">Oferta no Marketplace</span>
+                <span class="prod-price">A partir de R$ 19,90</span>
+              </div>
+              <a href="https://basefy.io" class="prod-cta-link">Ver Oferta ➔</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- HOW IT WORKS -->
+      <section class="how-box">
+        <div class="how-header">
+          <h3>Como Funciona a Compra na Basefy</h3>
+          <p>Processo simples, transparente e com suporte humano a cada etapa</p>
+        </div>
+
+        <div class="steps-row">
+          <div class="step-card">
+            <div class="step-number">1</div>
+            <div class="step-title">Escolha no Catálogo</div>
+            <div class="step-desc">Navegue pelo marketplace e escolha a ferramenta ou software ideal para sua necessidade.</div>
+          </div>
+
+          <div class="step-card">
+            <div class="step-number">2</div>
+            <div class="step-title">Pagamento Protegido</div>
+            <div class="step-desc">Pague com segurança via Pix ou Cartão. Seu saldo fica retido em custódia segura pela Basefy.</div>
+          </div>
+
+          <div class="step-card">
+            <div class="step-number">3</div>
+            <div class="step-title">Acesse e Valide</div>
+            <div class="step-desc">Receba os dados de acesso imediatamente e teste com calma. O suporte está sempre online.</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- BOTTOM BANNER CTA -->
+      <section class="banner-cta">
+        <h2>Pronto para Acessar as Melhores Soluções Digitais?</h2>
+        <p>
+          Milhares de profissionais utilizam a Basefy diariamente para economizar em ferramentas e acelerar suas entregas.
+        </p>
+        <a href="https://basefy.io" class="btn-marketplace" id="btn-banner-cta">
+          Acessar Marketplace Basefy Agora ➔
+        </a>
+      </section>
+
+      <!-- FAQ -->
+      <section class="faq-section">
+        <div class="faq-title">Dúvidas Frequentes</div>
+        <div class="faq-grid">
+          <div class="faq-item">
+            <div class="faq-q">Como funciona a entrega das ferramentas?</div>
+            <div class="faq-a">Assim que o pagamento é aprovado, as orientações de ativação e credenciais são disponibilizadas instantaneamente no seu painel de usuário e enviadas para o seu e-mail cadastrado.</div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-q">O que significa "Saldo Protegido"?</div>
+            <div class="faq-a">O saldo da sua compra permanece sob custódia da Basefy e só é liberado para o fornecedor após a confirmação do pleno funcionamento do serviço ou transcorrido o prazo de garantia.</div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-q">Posso pedir reembolso se a ferramenta não funcionar?</div>
+            <div class="faq-a">Sim. Você conta com garantia de 7 dias (conforme o Artigo 49 do Código de Defesa do Consumidor). Se houver qualquer instabilidade técnica não resolvida, o estorno do saldo é efetuado de forma simples.</div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-q">Quais são as formas de pagamento aceitas?</div>
+            <div class="faq-a">Aceitamos Pix com aprovação imediata em segundos e Cartões de Crédito com parcelamento seguro.</div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+      <div>
+        © 2026 Basefy Marketplace. Todos os direitos reservados.
+      </div>
+      <div class="footer-links">
+        <a href="/termos">Termos de Uso</a>
+        <a href="/privacidade">Política de Privacidade</a>
+        <a href="/reembolso">Política de Reembolso</a>
+        <a href="mailto:suporte@basefy.io">suporte@basefy.io</a>
+      </div>
+    </footer>
+  </div>
+
+  <!-- STICKY MOBILE BOTTOM BAR -->
+  <div class="sticky-bottom-bar">
+    <a href="https://basefy.io" class="sticky-btn" id="btn-sticky-cta">
+      Ver Marketplace ➔
+    </a>
+  </div>
+
+  <!-- SCRIPT PARA PRESERVAR UTMS E PARÂMETROS DO GOOGLE ADS -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const searchParams = window.location.search;
+      if (searchParams && searchParams.length > 1) {
+        // Encontra todos os links que apontam para o marketplace
+        const marketplaceLinks = document.querySelectorAll('a[href^="https://basefy.io"]');
+        marketplaceLinks.forEach(function(link) {
+          try {
+            const url = new URL(link.href);
+            const currentParams = new URLSearchParams(window.location.search);
+            currentParams.forEach(function(value, key) {
+              url.searchParams.set(key, value);
+            });
+            link.href = url.toString();
+          } catch (e) {
+            const separator = link.href.indexOf('?') !== -1 ? '&' : '?';
+            link.href = link.href + separator + searchParams.substring(1);
+          }
+        });
+      }
+    });
+  </script>
+</body>
+</html>
