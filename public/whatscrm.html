@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WhatsCRM Pro por Basefy | CRM Kanban e Automação para WhatsApp</title>
+  <meta name="description" content="Multiplique suas vendas e atenda até 4x mais rápido no WhatsApp com o WhatsCRM Pro da Basefy. Pipeline Kanban, respostas rápidas e gestão completa de leads." />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="WhatsCRM Pro por Basefy | CRM Kanban para WhatsApp" />
+  <meta property="og:description" content="Organize seus leads em colunas Kanban, responda com 1 clique e aumente suas vendas no WhatsApp." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://basefy-institucional.vercel.app/whatscrm" />
+  <meta property="og:image" content="https://basefy-institucional.vercel.app/logo-basefy.webp" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/webp" href="/logo-basefy.webp" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              purple: '#8B5CF6',
+              purpleDark: '#6D28D9',
+              green: '#25D366',
+              greenDark: '#128C7E',
+              darkBg: '#0b0813',
+              cardBg: '#130f21',
+              border: 'rgba(139, 92, 246, 0.15)',
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Google Fonts Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <style>
+    body {
+      background-color: #0b0813;
+      color: #e2e8f0;
+      font-family: 'Inter', system-ui, sans-serif;
+      overflow-x: hidden;
+    }
+    .gradient-text-purple {
+      background: linear-gradient(135deg, #a78bfa 0%, #c084fc 50%, #f472b6 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .gradient-text-green {
+      background: linear-gradient(135deg, #34d399 0%, #25D366 50%, #10b981 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .glow-purple {
+      box-shadow: 0 0 50px -10px rgba(139, 92, 246, 0.35);
+    }
+    .glow-green {
+      box-shadow: 0 0 40px -10px rgba(37, 211, 102, 0.35);
+    }
+    .grid-pattern {
+      background-size: 40px 40px;
+      background-image: 
+        linear-gradient(to right, rgba(139, 92, 246, 0.04) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(139, 92, 246, 0.04) 1px, transparent 1px);
+    }
+    .kanban-scrollbar::-webkit-scrollbar {
+      height: 6px;
+    }
+    .kanban-scrollbar::-webkit-scrollbar-track {
+      background: rgba(255, 255, 255, 0.02);
+      border-radius: 999px;
+    }
+    .kanban-scrollbar::-webkit-scrollbar-thumb {
+      background: rgba(139, 92, 246, 0.3);
+      border-radius: 999px;
+    }
+  </style>
+</head>
+<body class="bg-[#0b0813] text-slate-200 antialiased selection:bg-purple-600 selection:text-white">
+
+  <!-- Background Gradients -->
+  <div class="fixed inset-0 pointer-events-none grid-pattern z-0"></div>
+  <div class="fixed top-[-10%] left-1/2 -translate-x-1/2 w-[700px] h-[500px] bg-purple-900/20 blur-[130px] rounded-full pointer-events-none z-0"></div>
+  <div class="fixed top-[40%] right-[-10%] w-[500px] h-[500px] bg-emerald-900/15 blur-[140px] rounded-full pointer-events-none z-0"></div>
+
+  <!-- Header Flutuante -->
+  <header class="sticky top-0 z-50 backdrop-blur-md bg-[#0b0813]/80 border-b border-purple-500/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Logo Basefy + WhatsCRM -->
+      <a href="/whatscrm" class="flex items-center gap-3 group">
+        <div class="relative flex items-center justify-center w-11 h-11 rounded-xl bg-gradient-to-br from-purple-600 to-indigo-800 p-0.5 shadow-lg shadow-purple-900/40 group-hover:scale-105 transition-transform">
+          <img src="/logo-basefy.webp" alt="Logo Basefy" class="w-full h-full object-contain rounded-[10px]" onerror="this.src='/logo-basefy.png'" />
+        </div>
+        <div class="flex flex-col">
+          <span class="text-lg font-bold text-white tracking-tight flex items-center gap-1.5">
+            Basefy <span class="text-xs font-semibold px-2 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400">WhatsCRM</span>
+          </span>
+          <span class="text-[11px] text-slate-400 font-medium">SaaS Oficial de Vendas</span>
+        </div>
+      </a>
+
+      <!-- Menu Desktop -->
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
+        <a href="#recursos" class="hover:text-purple-400 transition-colors">Recursos</a>
+        <a href="#kanban" class="hover:text-purple-400 transition-colors">Demonstração</a>
+        <a href="#como-funciona" class="hover:text-purple-400 transition-colors">Como Funciona</a>
+        <a href="#depoimentos" class="hover:text-purple-400 transition-colors">Depoimentos</a>
+        <a href="#precos" class="hover:text-purple-400 transition-colors">Planos</a>
+        <a href="#faq" class="hover:text-purple-400 transition-colors">Dúvidas</a>
+      </nav>
+
+      <!-- CTA Header -->
+      <div class="flex items-center gap-3">
+        <a href="#precos" class="relative inline-flex items-center justify-center px-5 py-2.5 text-sm font-semibold text-white transition-all bg-gradient-to-r from-emerald-500 to-emerald-600 rounded-xl hover:from-emerald-400 hover:to-emerald-500 shadow-lg shadow-emerald-950/40 active:scale-95">
+          <i data-lucide="zap" class="w-4 h-4 mr-1.5"></i>
+          Começar Teste
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="relative z-10 pt-16 pb-20 md:pt-24 md:pb-28 overflow-hidden">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      
+      <!-- Badge de Lançamento Oficial -->
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-300 text-xs sm:text-sm font-medium mb-6 shadow-sm">
+        <span class="flex h-2 w-2 rounded-full bg-emerald-400 animate-pulse"></span>
+        <span>Software Homologado para WhatsApp Web</span>
+        <span class="text-slate-500">|</span>
+        <span class="text-emerald-400 font-semibold">100% Anti-Ban</span>
+      </div>
+
+      <!-- Headline Principal -->
+      <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-white leading-[1.15] mb-6">
+        Transforme o WhatsApp da sua empresa em uma <br class="hidden sm:inline" />
+        <span class="gradient-text-purple">Máquina de Vendas</span> com <span class="gradient-text-green">Kanban Integrado</span>
+      </h1>
+
+      <!-- Subheadline Clara e Convincente -->
+      <p class="max-w-3xl mx-auto text-lg sm:text-xl text-slate-300 leading-relaxed font-normal mb-10">
+        Diga adeus às conversas perdidas e à desorganização. Organize seus clientes em colunas visuais, envie respostas gravadas com 1 clique e acompanhe cada negociação até o pagamento.
+      </p>
+
+      <!-- Botões de Ação Hero -->
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
+        <a href="#precos" class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 text-base font-bold text-white bg-gradient-to-r from-emerald-500 via-emerald-600 to-teal-600 rounded-xl hover:from-emerald-400 hover:to-teal-500 shadow-xl shadow-emerald-900/30 transition-all hover:scale-[1.02] active:scale-95">
+          <i data-lucide="arrow-right-circle" class="w-5 h-5 mr-2"></i>
+          Quero Aumentar Minhas Vendas Agora
+        </a>
+        <a href="#kanban" class="w-full sm:w-auto inline-flex items-center justify-center px-7 py-4 text-base font-semibold text-slate-200 bg-slate-900/80 hover:bg-slate-800/90 border border-slate-700/60 rounded-xl transition-all">
+          <i data-lucide="play" class="w-4 h-4 mr-2 text-purple-400"></i>
+          Ver Demonstração Interativa
+        </a>
+      </div>
+
+      <!-- Prova Social Imediata (Badges) -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto pt-6 border-t border-purple-500/10 text-slate-400 text-xs sm:text-sm font-medium">
+        <div class="flex items-center justify-center gap-2">
+          <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400"></i>
+          <span>Instalação em 30 segundos</span>
+        </div>
+        <div class="flex items-center justify-center gap-2">
+          <i data-lucide="shield-check" class="w-4 h-4 text-purple-400"></i>
+          <span>Garantia de 7 dias CDC</span>
+        </div>
+        <div class="flex items-center justify-center gap-2">
+          <i data-lucide="users" class="w-4 h-4 text-emerald-400"></i>
+          <span>+1.400 empresas ativas</span>
+        </div>
+        <div class="flex items-center justify-center gap-2">
+          <i data-lucide="star" class="w-4 h-4 text-amber-400"></i>
+          <span>Avaliação 4.9 de 5.0</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- MOCKUP INTERATIVO DO KANBAN WHATSAPP -->
+  <section id="kanban" class="relative z-10 py-12 md:py-20">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Topo do Mockup -->
+      <div class="text-center mb-10">
+        <span class="text-xs font-bold uppercase tracking-wider text-purple-400 bg-purple-500/10 px-3 py-1 rounded-full border border-purple-500/20">Interface Real do WhatsCRM</span>
+        <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-3">
+          Veja como o seu WhatsApp vai ficar organizado
+        </h2>
+        <p class="text-slate-400 max-w-2xl mx-auto mt-2 text-sm sm:text-base">
+          Um painel limpo e intuitivo anexado diretamente à sua tela de conversas diárias. Arraste e solte clientes conforme avançam na compra.
+        </p>
+      </div>
+
+      <!-- Moldura da Aplicação (Window Frame) -->
+      <div class="relative rounded-2xl bg-[#130f21] border border-purple-500/20 shadow-2xl shadow-purple-950/60 p-4 sm:p-6 overflow-hidden">
+        
+        <!-- Header da Janela -->
+        <div class="flex flex-wrap items-center justify-between gap-4 pb-5 border-b border-slate-800">
+          <div class="flex items-center gap-2">
+            <div class="w-3 h-3 rounded-full bg-red-500/80"></div>
+            <div class="w-3 h-3 rounded-full bg-amber-500/80"></div>
+            <div class="w-3 h-3 rounded-full bg-emerald-500/80"></div>
+            <span class="ml-3 text-xs font-semibold text-slate-300 flex items-center gap-1.5">
+              <i data-lucide="layout-kanban" class="w-4 h-4 text-purple-400"></i>
+              WhatsCRM Pro - Basefy Pipeline Ativo
+            </span>
+          </div>
+
+          <div class="flex items-center gap-3 text-xs">
+            <span class="px-2.5 py-1 rounded-md bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 font-medium flex items-center gap-1">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> WhatsApp Conectado
+            </span>
+            <span class="px-2.5 py-1 rounded-md bg-purple-500/10 text-purple-300 border border-purple-500/20 font-medium">
+              Total Negociado: R$ 42.850,00
+            </span>
+          </div>
+        </div>
+
+        <!-- Colunas Kanban (Scroll horizontal no mobile) -->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mt-6 overflow-x-auto pb-4 kanban-scrollbar">
+          
+          <!-- Coluna 1: Novos Leads -->
+          <div class="bg-[#181329] rounded-xl p-3 border border-slate-800 flex flex-col min-w-[240px]">
+            <div class="flex items-center justify-between pb-3 mb-3 border-b border-slate-800/80">
+              <div class="flex items-center gap-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-sky-400"></span>
+                <span class="text-xs font-bold text-white uppercase tracking-wider">Novos Contatos</span>
+              </div>
+              <span class="text-[11px] px-2 py-0.5 rounded-full bg-slate-800 text-slate-300 font-semibold">4</span>
+            </div>
+
+            <div class="space-y-3 flex-1">
+              <!-- Card 1 -->
+              <div class="bg-[#201a35] hover:border-purple-500/50 transition-all p-3 rounded-lg border border-slate-800/90 shadow-sm cursor-pointer">
+                <div class="flex items-start justify-between">
+                  <span class="text-xs font-bold text-white">Lucas Silveira</span>
+                  <span class="text-[10px] text-slate-400">10:42</span>
+                </div>
+                <p class="text-[11px] text-slate-400 mt-1 line-clamp-1">"Olá, gostaria de saber os preços do plano anual"</p>
+                <div class="flex items-center justify-between mt-3 pt-2 border-t border-slate-800">
+                  <span class="text-[10px] px-1.5 py-0.5 rounded bg-sky-500/20 text-sky-300 font-medium">Google Ads</span>
+                  <span class="text-xs font-bold text-emerald-400">R$ 397</span>
+                </div>
+              </div>
+
+              <!-- Card 2 -->
+              <div class="bg-[#201a35] hover:border-purple-500/50 transition-all p-3 rounded-lg border border-slate-800/90 shadow-sm cursor-pointer">
+                <div class="flex items-start justify-between">
+                  <span class="text-xs font-bold text-white">Mariana Costa</span>
+                  <span class="text-[10px] text-slate-400">09:15</span>
+                </div>
+                <p class="text-[11px] text-slate-400 mt-1 line-clamp-1">"Funciona para consultório com 3 atendentes?"</p>
+                <div class="flex items-center justify-between mt-3 pt-2 border-t border-slate-800">
+                  <span class="text-[10px] px-1.5 py-0.5 rounded bg-purple-500/20 text-purple-300 font-medium">Indicação</span>
+                  <span class="text-xs font-bold text-emerald-400">R$ 890</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Coluna 2: Em Negociação -->
+          <div class="bg-[#181329] rounded-xl p-3 border border-slate-800 flex flex-col min-w-[240px]">
+            <div class="flex items-center justify-between pb-3 mb-3 border-b border-slate-800/80">
+              <div class="flex items-center gap-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-amber-400"></span>
+                <span class="text-xs font-bold text-white uppercase tracking-wider">Em Negociação</span>
+              </div>
+              <span class="text-[11px] px-2 py-0.5 rounded-full bg-slate-800 text-slate-300 font-semibold">3</span>
+            </div>
+
+            <div class="space-y-3 flex-1">
+              <!-- Card 3 -->
+              <div class="bg-[#201a35] hover:border-purple-500/50 transition-all p-3 rounded-lg border border-slate-800/90 shadow-sm cursor-pointer">
+                <div class="flex items-start justify-between">
+                  <span class="text-xs font-bold text-white">Rodrigo Almeida</span>
+                  <span class="text-[10px] text-amber-400">Retornar hoje</span>
+                </div>
+                <p class="text-[11px] text-slate-400 mt-1 line-clamp-1">"Enviei a proposta detalhada com respostas rápidas"</p>
+                <div class="flex items-center justify-between mt-3 pt-2 border-t border-slate-800">
+                  <span class="text-[10px] px-1.5 py-0.5 rounded bg-amber-500/20 text-amber-300 font-medium">Proposta enviada</span>
+                  <span class="text-xs font-bold text-emerald-400">R$ 1.490</span>
+                </div>
+              </div>
+
+              <!-- Card 4 -->
+              <div class="bg-[#201a35] hover:border-purple-500/50 transition-all p-3 rounded-lg border border-slate-800/90 shadow-sm cursor-pointer">
+                <div class="flex items-start justify-between">
+                  <span class="text-xs font-bold text-white">Camila Rocha</span>
+                  <span class="text-[10px] text-slate-400">Ontem</span>
+                </div>
+                <p class="text-[11px] text-slate-400 mt-1 line-clamp-1">"Demonstração agendada para 15h"</p>
+                <div class="flex items-center justify-between mt-3 pt-2 border-t border-slate-800">
+                  <span class="text-[10px] px-1.5 py-0.5 rounded bg-indigo-500/20 text-indigo-300 font-medium">Demo VIP</span>
+                  <span class="text-xs font-bold text-emerald-400">R$ 2.100</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Coluna 3: Aguardando Pix / Pagamento -->
+          <div class="bg-[#181329] rounded-xl p-3 border border-slate-800 flex flex-col min-w-[240px]">
+            <div class="flex items-center justify-between pb-3 mb-3 border-b border-slate-800/80">
+              <div class="flex items-center gap-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
+                <span class="text-xs font-bold text-white uppercase tracking-wider">Aguardando Pix</span>
+              </div>
+              <span class="text-[11px] px-2 py-0.5 rounded-full bg-slate-800 text-slate-300 font-semibold">2</span>
+            </div>
+
+            <div class="space-y-3 flex-1">
+              <!-- Card 5 -->
+              <div class="bg-[#201a35] border-emerald-500/40 p-3 rounded-lg border shadow-sm cursor-pointer">
+                <div class="flex items-start justify-between">
+                  <span class="text-xs font-bold text-white">Felipe Santana</span>
+                  <span class="text-[10px] text-emerald-400 font-medium">Chave enviada</span>
+                </div>
+                <p class="text-[11px] text-slate-400 mt-1 line-clamp-1">"Vou pagar agora pelo app do banco, obrigado!"</p>
+                <div class="flex items-center justify-between mt-3 pt-2 border-t border-slate-800">
+                  <span class="text-[10px] px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-medium">Pix Gerado</span>
+                  <span class="text-xs font-bold text-emerald-400">R$ 397</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Coluna 4: Vendas Fechadas -->
+          <div class="bg-[#181329] rounded-xl p-3 border border-slate-800 flex flex-col min-w-[240px]">
+            <div class="flex items-center justify-between pb-3 mb-3 border-b border-slate-800/80">
+              <div class="flex items-center gap-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-purple-400"></span>
+                <span class="text-xs font-bold text-white uppercase tracking-wider">Vendas Fechadas</span>
+              </div>
+              <span class="text-[11px] px-2 py-0.5 rounded-full bg-purple-500/20 text-purple-300 font-semibold">18</span>
+            </div>
+
+            <div class="space-y-3 flex-1">
+              <!-- Card 6 -->
+              <div class="bg-[#201a35] p-3 rounded-lg border border-purple-500/30 shadow-sm cursor-pointer">
+                <div class="flex items-start justify-between">
+                  <span class="text-xs font-bold text-white">Dra. Beatriz Prado</span>
+                  <i data-lucide="check-check" class="w-3.5 h-3.5 text-emerald-400"></i>
+                </div>
+                <p class="text-[11px] text-slate-400 mt-1 line-clamp-1">"Acesso ativado com sucesso. Equipe adorou!"</p>
+                <div class="flex items-center justify-between mt-3 pt-2 border-t border-slate-800">
+                  <span class="text-[10px] px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-medium">Aprovado</span>
+                  <span class="text-xs font-bold text-emerald-400">R$ 1.850</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Seção de Recursos Principais -->
+  <section id="recursos" class="relative z-10 py-16 md:py-24 bg-[#0d0917]/70 border-y border-purple-500/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="text-xs font-bold uppercase tracking-wider text-emerald-400 bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/20">Produtividade Sem Limites</span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-4">
+          Tudo o que sua equipe precisa para faturar alto no WhatsApp
+        </h2>
+        <p class="text-slate-400 mt-3 text-base sm:text-lg">
+          Projetado para empreendedores, prestadores de serviço e equipes comerciais que não podem perder tempo com ferramentas complicadas.
+        </p>
+      </div>
+
+      <!-- Grid de 6 Recursos -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <!-- Recurso 1: Kanban Visual -->
+        <div class="p-6 rounded-2xl bg-[#140f24] border border-purple-500/15 hover:border-purple-500/40 transition-all hover:-translate-y-1 group">
+          <div class="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center text-purple-400 mb-5 group-hover:scale-110 transition-transform">
+            <i data-lucide="trello" class="w-6 h-6"></i>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-2">Funil Kanban Visual</h3>
+          <p class="text-slate-400 text-sm leading-relaxed">
+            Visualize cada lead em sua respectiva etapa de compra. Arraste contatos entre colunas e saiba exatamente quem precisa de retorno imediato.
+          </p>
+        </div>
+
+        <!-- Recurso 2: Respostas Rápidas em 1 Clique -->
+        <div class="p-6 rounded-2xl bg-[#140f24] border border-purple-500/15 hover:border-purple-500/40 transition-all hover:-translate-y-1 group">
+          <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 mb-5 group-hover:scale-110 transition-transform">
+            <i data-lucide="message-square-plus" class="w-6 h-6"></i>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-2">Respostas Rápidas com 1 Clique</h3>
+          <p class="text-slate-400 text-sm leading-relaxed">
+            Envie textos explicativos, fotos de produtos e áudios que parecem gravados na hora com apenas um clique pelo teclado ou botão de atalho.
+          </p>
+        </div>
+
+        <!-- Recurso 3: Multi-Atendimento e Equipe -->
+        <div class="p-6 rounded-2xl bg-[#140f24] border border-purple-500/15 hover:border-purple-500/40 transition-all hover:-translate-y-1 group">
+          <div class="w-12 h-12 rounded-xl bg-sky-500/10 border border-sky-500/20 flex items-center justify-center text-sky-400 mb-5 group-hover:scale-110 transition-transform">
+            <i data-lucide="users-2" class="w-6 h-6"></i>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-2">Gestão de Atendentes</h3>
+          <p class="text-slate-400 text-sm leading-relaxed">
+            Distribua conversas entre os atendentes da sua equipe sem custos extras por usuário. Cada membro sabe quais clientes estão sob sua responsabilidade.
+          </p>
+        </div>
+
+        <!-- Recurso 4: Etiquetas Inteligentes e Tags -->
+        <div class="p-6 rounded-2xl bg-[#140f24] border border-purple-500/15 hover:border-purple-500/40 transition-all hover:-translate-y-1 group">
+          <div class="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400 mb-5 group-hover:scale-110 transition-transform">
+            <i data-lucide="tag" class="w-6 h-6"></i>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-2">Etiquetas e Filtros Avançados</h3>
+          <p class="text-slate-400 text-sm leading-relaxed">
+            Classifique por origem de anúncio, valor de compra, urgência ou interesse. Filtre toda a sua lista em 1 segundo e dispare ofertas pontuais.
+          </p>
+        </div>
+
+        <!-- Recurso 5: Lembretes e Follow-up Automático -->
+        <div class="p-6 rounded-2xl bg-[#140f24] border border-purple-500/15 hover:border-purple-500/40 transition-all hover:-translate-y-1 group">
+          <div class="w-12 h-12 rounded-xl bg-pink-500/10 border border-pink-500/20 flex items-center justify-center text-pink-400 mb-5 group-hover:scale-110 transition-transform">
+            <i data-lucide="calendar-clock" class="w-6 h-6"></i>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-2">Agendamento de Follow-up</h3>
+          <p class="text-slate-400 text-sm leading-relaxed">
+            Nunca mais esqueça de cobrar um cliente ou retomar uma proposta. Crie lembretes de retorno e receba notificações na hora certa.
+          </p>
+        </div>
+
+        <!-- Recurso 6: Exportação e Relatórios -->
+        <div class="p-6 rounded-2xl bg-[#140f24] border border-purple-500/15 hover:border-purple-500/40 transition-all hover:-translate-y-1 group">
+          <div class="w-12 h-12 rounded-xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center text-indigo-400 mb-5 group-hover:scale-110 transition-transform">
+            <i data-lucide="bar-chart-3" class="w-6 h-6"></i>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-2">Métricas de Vendas</h3>
+          <p class="text-slate-400 text-sm leading-relaxed">
+            Acompanhe o valor total em negociação, taxa de fechamento por canal e exporte relatórios em Excel/CSV com um único clique.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Como Funciona em 3 Passos -->
+  <section id="como-funciona" class="relative z-10 py-16 md:py-24">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="text-xs font-bold uppercase tracking-wider text-purple-400 bg-purple-500/10 px-3 py-1 rounded-full border border-purple-500/20">Simples e Rápido</span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-4">
+          Pronto para usar em menos de 2 minutos
+        </h2>
+        <p class="text-slate-400 mt-2 text-base">
+          Sem instalações complicadas, sem servidores e sem precisar trocar o seu número de WhatsApp.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <div class="relative p-8 rounded-2xl bg-[#140f24] border border-slate-800 text-center flex flex-col items-center">
+          <div class="w-14 h-14 rounded-full bg-purple-600/20 border border-purple-500 text-purple-300 font-extrabold text-2xl flex items-center justify-center mb-6 shadow-md">
+            1
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">Ative sua Assinatura</h3>
+          <p class="text-slate-400 text-sm leading-relaxed">
+            Escolha o plano ideal e receba imediatamente no seu e-mail as credenciais de acesso e instruções passo a passo.
+          </p>
+        </div>
+
+        <div class="relative p-8 rounded-2xl bg-[#140f24] border border-slate-800 text-center flex flex-col items-center">
+          <div class="w-14 h-14 rounded-full bg-emerald-600/20 border border-emerald-500 text-emerald-300 font-extrabold text-2xl flex items-center justify-center mb-6 shadow-md">
+            2
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">Abra o WhatsApp Web</h3>
+          <p class="text-slate-400 text-sm leading-relaxed">
+            A extensão se integra de forma transparente à sua aba habitual do WhatsApp Web no Google Chrome ou Edge.
+          </p>
+        </div>
+
+        <div class="relative p-8 rounded-2xl bg-[#140f24] border border-slate-800 text-center flex flex-col items-center">
+          <div class="w-14 h-14 rounded-full bg-indigo-600/20 border border-indigo-500 text-indigo-300 font-extrabold text-2xl flex items-center justify-center mb-6 shadow-md">
+            3
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">Multiplique suas Vendas</h3>
+          <p class="text-slate-400 text-sm leading-relaxed">
+            Crie suas etapas de vendas, cadastre suas melhores respostas e atenda com a velocidade que seus clientes merecem.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Depoimentos e Prova Social -->
+  <section id="depoimentos" class="relative z-10 py-16 md:py-24 bg-[#0d0917]/70 border-t border-purple-500/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="text-xs font-bold uppercase tracking-wider text-emerald-400 bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/20">Resultados Comprovados</span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-4">
+          O que dizem os clientes que usam diariamente
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <div class="p-6 rounded-2xl bg-[#140f24] border border-slate-800 flex flex-col justify-between">
+          <div>
+            <div class="flex text-amber-400 mb-4">
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+            </div>
+            <p class="text-slate-300 text-sm italic mb-6">
+              "O Kanban do WhatsCRM salvou a nossa clínica. Perdíamos dezenas de orçamentos porque as mensagens ficavam soterradas no WhatsApp. Nosso faturamento subiu 42% no primeiro mês."
+            </p>
+          </div>
+          <div class="flex items-center gap-3 pt-4 border-t border-slate-800">
+            <div class="w-10 h-10 rounded-full bg-purple-600/30 flex items-center justify-center font-bold text-white text-sm">
+              CS
+            </div>
+            <div>
+              <h4 class="text-sm font-bold text-white">Carlos Sanches</h4>
+              <p class="text-xs text-slate-400">Gestor Comercial - OdontoPrime</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-[#140f24] border border-slate-800 flex flex-col justify-between">
+          <div>
+            <div class="flex text-amber-400 mb-4">
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+            </div>
+            <p class="text-slate-300 text-sm italic mb-6">
+              "As respostas rápidas com envio de áudio como se fossem gravados na hora aumentaram a confiança dos clientes. Ninguém desconfia que é uma mensagem salva. Ferramenta indispensável."
+            </p>
+          </div>
+          <div class="flex items-center gap-3 pt-4 border-t border-slate-800">
+            <div class="w-10 h-10 rounded-full bg-emerald-600/30 flex items-center justify-center font-bold text-white text-sm">
+              PB
+            </div>
+            <div>
+              <h4 class="text-sm font-bold text-white">Patrícia Barreto</h4>
+              <p class="text-xs text-slate-400">Proprietária - Loja Belle Modas</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-[#140f24] border border-slate-800 flex flex-col justify-between">
+          <div>
+            <div class="flex text-amber-400 mb-4">
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+            </div>
+            <p class="text-slate-300 text-sm italic mb-6">
+              "Eu usava planilhas e era um caos total. Agora com o WhatsCRM Pro sei exatamente quantos Pix estão pendentes e cobro no tempo certo. Valeu cada centavo investido."
+            </p>
+          </div>
+          <div class="flex items-center gap-3 pt-4 border-t border-slate-800">
+            <div class="w-10 h-10 rounded-full bg-indigo-600/30 flex items-center justify-center font-bold text-white text-sm">
+              GL
+            </div>
+            <div>
+              <h4 class="text-sm font-bold text-white">Gustavo Linhares</h4>
+              <p class="text-xs text-slate-400">Infoprodutor e Afiliado</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- TABELA DE PREÇOS (CONVERSÃO DIRETA) -->
+  <section id="precos" class="relative z-10 py-16 md:py-24">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="text-xs font-bold uppercase tracking-wider text-emerald-400 bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/20">Planos e Preços Transparentes</span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-4">
+          Escolha o melhor plano para o seu negócio
+        </h2>
+        <p class="text-slate-400 mt-2 text-base">
+          Sem taxas ocultas, sem fidelidade e com garantia incondicional de 7 dias.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+        
+        <!-- Plano Mensal -->
+        <div class="p-8 rounded-2xl bg-[#140f24] border border-slate-800 hover:border-slate-700 transition-all flex flex-col">
+          <h3 class="text-xl font-bold text-white mb-2">Plano Mensal Pro</h3>
+          <p class="text-slate-400 text-sm mb-6">Ideal para quem quer começar e testar a ferramenta com liberdade.</p>
+          
+          <div class="mb-6">
+            <div class="flex items-baseline gap-1">
+              <span class="text-slate-400 text-sm font-medium">R$</span>
+              <span class="text-4xl font-extrabold text-white">49</span>
+              <span class="text-2xl font-bold text-white">,90</span>
+              <span class="text-slate-400 text-sm">/mês</span>
+            </div>
+            <span class="text-xs text-slate-400 mt-1 block">Cobrança mensal, cancele quando desejar</span>
+          </div>
+
+          <ul class="space-y-3 text-sm text-slate-300 mb-8 flex-1">
+            <li class="flex items-center gap-2">
+              <i data-lucide="check" class="w-4 h-4 text-emerald-400"></i>
+              <span>Pipeline Kanban ilimitado</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <i data-lucide="check" class="w-4 h-4 text-emerald-400"></i>
+              <span>Respostas rápidas e áudios gravados</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <i data-lucide="check" class="w-4 h-4 text-emerald-400"></i>
+              <span>Etiquetas e filtros avançados</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <i data-lucide="check" class="w-4 h-4 text-emerald-400"></i>
+              <span>Até 3 atendentes na equipe</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <i data-lucide="check" class="w-4 h-4 text-emerald-400"></i>
+              <span>Suporte prioritário via WhatsApp</span>
+            </li>
+          </ul>
+
+          <a href="https://basefy.io" target="_blank" class="w-full py-3.5 px-4 rounded-xl font-semibold text-center text-white bg-slate-800 hover:bg-slate-700 border border-slate-700 transition-all">
+            Assinar Plano Mensal
+          </a>
+        </div>
+
+        <!-- Plano Anual Pro (Destaque) -->
+        <div class="relative p-8 rounded-2xl bg-gradient-to-b from-[#1b1333] to-[#140f26] border-2 border-purple-500/50 shadow-2xl shadow-purple-950/60 flex flex-col">
+          
+          <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-gradient-to-r from-purple-600 to-indigo-600 text-white text-xs font-bold tracking-wide uppercase shadow-md">
+            Mais Escolhido (34% OFF)
+          </div>
+
+          <h3 class="text-xl font-bold text-white mb-2">Plano Anual Vitalício Anual</h3>
+          <p class="text-slate-300 text-sm mb-6">Economia máxima com 2 meses grátis e bônus exclusivos.</p>
+          
+          <div class="mb-6">
+            <div class="flex items-baseline gap-1">
+              <span class="text-slate-400 text-sm font-medium">12x de R$</span>
+              <span class="text-4xl font-extrabold text-emerald-400">39</span>
+              <span class="text-2xl font-bold text-emerald-400">,70</span>
+            </div>
+            <span class="text-xs text-slate-300 mt-1 block">ou R$ 397 à vista no Pix com desconto especial</span>
+          </div>
+
+          <ul class="space-y-3 text-sm text-slate-200 mb-8 flex-1">
+            <li class="flex items-center gap-2 font-medium">
+              <i data-lucide="check" class="w-4 h-4 text-emerald-400"></i>
+              <span>Tudo do Plano Mensal incluso</span>
+            </li>
+            <li class="flex items-center gap-2 font-medium">
+              <i data-lucide="check" class="w-4 h-4 text-emerald-400"></i>
+              <span>Atendentes e conexões Ilimitadas</span>
+            </li>
+            <li class="flex items-center gap-2 font-medium">
+              <i data-lucide="check" class="w-4 h-4 text-emerald-400"></i>
+              <span>Bônus: Pack com 50 Scripts Validados</span>
+            </li>
+            <li class="flex items-center gap-2 font-medium">
+              <i data-lucide="check" class="w-4 h-4 text-emerald-400"></i>
+              <span>Atualizações e novos módulos prioritários</span>
+            </li>
+            <li class="flex items-center gap-2 font-medium">
+              <i data-lucide="check" class="w-4 h-4 text-emerald-400"></i>
+              <span>Garantia estendida incondicional</span>
+            </li>
+          </ul>
+
+          <a href="https://basefy.io" target="_blank" class="w-full py-4 px-4 rounded-xl font-bold text-center text-white bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-400 hover:to-emerald-500 shadow-xl shadow-emerald-950/50 transition-all hover:scale-[1.02] active:scale-95">
+            Garantir Vaga no Plano Anual com Desconto
+          </a>
+        </div>
+
+      </div>
+
+      <!-- Caixa de Garantia CDC 7 Dias -->
+      <div class="mt-12 p-6 rounded-2xl bg-[#140f24] border border-emerald-500/20 flex flex-col sm:flex-row items-center gap-5">
+        <div class="w-16 h-16 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 flex-shrink-0 flex items-center justify-center text-emerald-400">
+          <i data-lucide="shield-check" class="w-8 h-8"></i>
+        </div>
+        <div>
+          <h4 class="text-base font-bold text-white">Garantia Incondicional de 7 Dias (CDC Art. 49)</h4>
+          <p class="text-sm text-slate-400 mt-1 leading-relaxed">
+            Teste o WhatsCRM Pro no seu dia a dia por 7 dias inteiros. Se por qualquer motivo achar que não valeu a pena, basta nos enviar um e-mail ou mensagem no WhatsApp e devolveremos 100% do seu dinheiro, sem perguntas e sem complicação.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FAQ (Perguntas Frequentes) -->
+  <section id="faq" class="relative z-10 py-16 md:py-24 bg-[#0d0917]/70 border-t border-purple-500/10">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <span class="text-xs font-bold uppercase tracking-wider text-purple-400 bg-purple-500/10 px-3 py-1 rounded-full border border-purple-500/20">Tire suas Dúvidas</span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-4">
+          Perguntas Frequentes
+        </h2>
+      </div>
+
+      <div class="space-y-4">
+        
+        <details class="p-5 rounded-xl bg-[#140f24] border border-slate-800 group open:border-purple-500/40 transition-all">
+          <summary class="flex items-center justify-between font-bold text-white cursor-pointer select-none">
+            <span>Preciso pagar a API Oficial da Meta para usar o WhatsCRM?</span>
+            <i data-lucide="chevron-down" class="w-5 h-5 text-slate-400 group-open:rotate-180 transition-transform"></i>
+          </summary>
+          <p class="mt-3 text-sm text-slate-400 leading-relaxed border-t border-slate-800/60 pt-3">
+            Não! O WhatsCRM Pro funciona diretamente no seu WhatsApp Web normal ou WhatsApp Business através de uma extensão segura para o navegador Chrome ou Edge. Não há custo de envio de mensagens nem mensalidades extras com servidores.
+          </p>
+        </details>
+
+        <details class="p-5 rounded-xl bg-[#140f24] border border-slate-800 group open:border-purple-500/40 transition-all">
+          <summary class="flex items-center justify-between font-bold text-white cursor-pointer select-none">
+            <span>Existe algum risco de bloqueio do meu número?</span>
+            <i data-lucide="chevron-down" class="w-5 h-5 text-slate-400 group-open:rotate-180 transition-transform"></i>
+          </summary>
+          <p class="mt-3 text-sm text-slate-400 leading-relaxed border-t border-slate-800/60 pt-3">
+            Zero risco. O WhatsCRM Pro não realiza disparos massivos em massa de spam para contatos desconhecidos. Ele funciona como uma camada de organização visual (Kanban) e respostas rápidas para o seu atendimento pessoal e da sua equipe.
+          </p>
+        </details>
+
+        <details class="p-5 rounded-xl bg-[#140f24] border border-slate-800 group open:border-purple-500/40 transition-all">
+          <summary class="flex items-center justify-between font-bold text-white cursor-pointer select-none">
+            <span>Como recebo o acesso após o pagamento?</span>
+            <i data-lucide="chevron-down" class="w-5 h-5 text-slate-400 group-open:rotate-180 transition-transform"></i>
+          </summary>
+          <p class="mt-3 text-sm text-slate-400 leading-relaxed border-t border-slate-800/60 pt-3">
+            O envio é 100% automático e imediato. Logo após a aprovação da compra (no Pix cai na mesma hora), você recebe um e-mail com o link de download da extensão, chave de ativação e tutorial em vídeo de 3 minutos.
+          </p>
+        </details>
+
+        <details class="p-5 rounded-xl bg-[#140f24] border border-slate-800 group open:border-purple-500/40 transition-all">
+          <summary class="flex items-center justify-between font-bold text-white cursor-pointer select-none">
+            <span>Posso usar em mais de um computador ou atendente?</span>
+            <i data-lucide="chevron-down" class="w-5 h-5 text-slate-400 group-open:rotate-180 transition-transform"></i>
+          </summary>
+          <p class="mt-3 text-sm text-slate-400 leading-relaxed border-t border-slate-800/60 pt-3">
+            Sim! O Plano Mensal suporta até 3 atendentes e o Plano Anual oferece atendentes ilimitados para conectar toda a sua equipe sob o mesmo fluxo de vendas.
+          </p>
+        </details>
+
+        <details class="p-5 rounded-xl bg-[#140f24] border border-slate-800 group open:border-purple-500/40 transition-all">
+          <summary class="flex items-center justify-between font-bold text-white cursor-pointer select-none">
+            <span>Se eu não me adaptar, como funciona o reembolso?</span>
+            <i data-lucide="chevron-down" class="w-5 h-5 text-slate-400 group-open:rotate-180 transition-transform"></i>
+          </summary>
+          <p class="mt-3 text-sm text-slate-400 leading-relaxed border-t border-slate-800/60 pt-3">
+            Você possui 7 dias de garantia incondicional pelo Código de Defesa do Consumidor. Caso queira cancelar por qualquer razão, basta enviar uma mensagem ao suporte e estornamos o valor total sem burocracia.
+          </p>
+        </details>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Rodapé Institucional Conforme com o Google Ads -->
+  <footer class="relative z-10 py-12 border-t border-purple-500/10 bg-[#09060f]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6 pb-8 border-b border-slate-800/80">
+        
+        <div class="flex items-center gap-3">
+          <img src="/logo-basefy.webp" alt="Basefy" class="w-8 h-8 object-contain rounded-lg" onerror="this.src='/logo-basefy.png'" />
+          <div>
+            <span class="text-base font-bold text-white">Basefy Soluções Digitais</span>
+            <p class="text-xs text-slate-400">Tecnologia em Produtividade e Vendas Online</p>
+          </div>
+        </div>
+
+        <!-- Links Oficiais e Políticas de Privacidade / Reembolso / Termos -->
+        <div class="flex flex-wrap items-center gap-6 text-xs text-slate-400">
+          <a href="/termos" class="hover:text-purple-400 transition-colors">Termos de Uso</a>
+          <a href="/privacidade" class="hover:text-purple-400 transition-colors">Política de Privacidade</a>
+          <a href="/reembolso" class="hover:text-purple-400 transition-colors">Política de Reembolso</a>
+          <a href="mailto:suporte@basefy.io" class="hover:text-purple-400 transition-colors">Contato: suporte@basefy.io</a>
+        </div>
+
+      </div>
+
+      <div class="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-500 text-center md:text-left">
+        <p>
+          &copy; 2026 Basefy Soluções Digitais. Todos os direitos reservados.
+        </p>
+        <p class="max-w-xl text-[11px] text-slate-500">
+          Aviso legal: O WhatsCRM Pro é uma extensão de produtividade desenvolvida de forma independente pela Basefy. Este software não possui qualquer vínculo societário, patrocínio ou afiliação oficial com a Meta Inc., WhatsApp Inc. ou Google LLC.
+        </p>
+      </div>
+
+    </div>
+  </footer>
+
+  <script>
+    // Inicializar ícones Lucide
+    lucide.createIcons();
+  </script>
+</body>
+</html>
