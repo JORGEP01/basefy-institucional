@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Basefy | Compre e venda ativos digitais</title>
+  <meta name="description" content="Basefy Marketplace. Compre e venda ativos digitais, contas, serviços, itens e muito mais com entrega imediata e saldo protegido.">
+  <meta name="robots" content="index, follow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #0d0a14;
+      --card-bg: rgba(19, 14, 30, 0.85);
+      --border: rgba(184, 117, 250, 0.15);
+      --purple-base: #8b2cf5;
+      --purple-gradient: linear-gradient(135deg, #c084fc, #8b2cf5);
+      --purple-btn: linear-gradient(135deg, #8b2cf5, #6d28d9);
+      --purple-btn-hover: linear-gradient(135deg, #9d4edd, #7c3aed);
+      --purple-glow: rgba(139, 44, 245, 0.5);
+      --green: #10b981;
+      --text: #ffffff;
+      --text-muted: #94a3b8;
+      --text-dim: #64748b;
+      --font-display: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg);
+      background-image: 
+        radial-gradient(circle at 50% 10%, rgba(139, 44, 245, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 85% 90%, rgba(123, 97, 255, 0.08) 0%, transparent 40%),
+        radial-gradient(circle at 15% 80%, rgba(16, 185, 129, 0.04) 0%, transparent 35%);
+      color: var(--text);
+      font-family: var(--font-body);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 24px 20px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .presell-card {
+      background: var(--card-bg);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid var(--border);
+      border-radius: 26px;
+      max-width: 480px;
+      width: 100%;
+      padding: 44px 32px 36px;
+      text-align: center;
+      box-shadow: 0 24px 64px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(184, 117, 250, 0.08);
+      position: relative;
+      overflow: hidden;
+      animation: fadeIn 0.35s ease-out;
+    }
+
+    .presell-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 20%;
+      right: 20%;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #b875fa, transparent);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* LOGO BASEFY */
+    .logo-wrap {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 22px;
+      text-decoration: none;
+    }
+
+    .logo-img {
+      height: 48px;
+      width: auto;
+      max-width: 200px;
+      object-fit: contain;
+      filter: drop-shadow(0 4px 16px rgba(139, 44, 245, 0.35));
+    }
+
+    /* BADGE */
+    .badge-container {
+      margin-bottom: 20px;
+    }
+
+    .verified-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: rgba(16, 185, 129, 0.1);
+      border: 1px solid rgba(16, 185, 129, 0.28);
+      color: var(--green);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border-radius: 20px;
+    }
+
+    .badge-dot {
+      width: 6px;
+      height: 6px;
+      background: var(--green);
+      border-radius: 50%;
+      box-shadow: 0 0 8px var(--green);
+    }
+
+    /* HEADLINE IDENTICA A BASE */
+    h1.hero-title {
+      font-family: var(--font-display);
+      font-size: 32px;
+      font-weight: 900;
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+      color: #ffffff;
+      margin-bottom: 8px;
+    }
+
+    .gradient-text {
+      display: block;
+      background: var(--purple-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 900;
+    }
+
+    p.subtitle {
+      font-size: 15px;
+      color: var(--text-muted);
+      line-height: 1.5;
+      margin-bottom: 30px;
+    }
+
+    /* O BOTÃO PRINCIPAL */
+    .btn-wrap {
+      margin-bottom: 20px;
+    }
+
+    .btn-main {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      padding: 18px 28px;
+      background: var(--purple-btn);
+      color: #ffffff;
+      font-family: var(--font-display);
+      font-size: 18px;
+      font-weight: 900;
+      letter-spacing: -0.01em;
+      border-radius: 14px;
+      text-decoration: none;
+      box-shadow: 0 8px 30px var(--purple-glow);
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      cursor: pointer;
+    }
+
+    .btn-main:hover {
+      background: var(--purple-btn-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 38px rgba(139, 44, 245, 0.7);
+    }
+
+    .btn-main:active {
+      transform: translateY(0);
+    }
+
+    .btn-arrow {
+      font-size: 20px;
+      transition: transform 0.2s ease;
+    }
+
+    .btn-main:hover .btn-arrow {
+      transform: translateX(4px);
+    }
+
+    .btn-note {
+      font-size: 12px;
+      color: var(--text-dim);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      margin-bottom: 26px;
+    }
+
+    /* PILARES DE SEGURANÇA */
+    .trust-strip {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      flex-wrap: wrap;
+    }
+
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--text-muted);
+    }
+
+    .trust-item span.icon {
+      font-size: 13px;
+    }
+
+    /* FOOTER */
+    footer {
+      margin-top: 28px;
+      text-align: center;
+      font-size: 11px;
+      color: var(--text-dim);
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      margin-top: 8px;
+    }
+
+    .footer-links a {
+      color: var(--text-dim);
+      text-decoration: none;
+      transition: color 0.15s ease;
+    }
+
+    .footer-links a:hover {
+      color: #b875fa;
+    }
+
+    @media (max-width: 480px) {
+      body {
+        padding: 16px;
+      }
+      .presell-card {
+        padding: 34px 22px 28px;
+        border-radius: 20px;
+      }
+      .logo-img {
+        height: 42px;
+      }
+      h1.hero-title {
+        font-size: 26px;
+      }
+      .btn-main {
+        font-size: 16px;
+        padding: 16px 20px;
+      }
+      .trust-strip {
+        gap: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="presell-card">
+    <!-- OFFICIAL LOGO -->
+    <a href="https://basefy.io" class="logo-wrap">
+      <img src="/logo-basefy.webp" alt="Basefy Marketplace" class="logo-img">
+    </a>
+
+    <!-- VERIFIED BADGE -->
+    <div class="badge-container">
+      <span class="verified-badge">
+        <span class="badge-dot"></span>
+        Marketplace Oficial Verificado
+      </span>
+    </div>
+
+    <!-- HEADLINE IDENTICA A BASEFY -->
+    <h1 class="hero-title">
+      Compre e venda
+      <span class="gradient-text">ativos digitais</span>
+    </h1>
+    <p class="subtitle">
+      Contas, serviços, itens e muito mais com entrega imediata e saldo protegido.
+    </p>
+
+    <!-- O BOTÃO PRINCIPAL -->
+    <div class="btn-wrap">
+      <a href="https://basefy.io" class="btn-main" id="btn-marketplace">
+        <span>Ver Marketplace</span>
+        <span class="btn-arrow">➔</span>
+      </a>
+    </div>
+
+    <div class="btn-note">
+      <span>🔒</span> Clique acima para acessar o catálogo oficial
+    </div>
+
+    <!-- PILARES DE CONFIANÇA -->
+    <div class="trust-strip">
+      <div class="trust-item"><span class="icon">🛡️</span> Saldo Protegido</div>
+      <div class="trust-item"><span class="icon">⚡</span> Entrega Imediata</div>
+      <div class="trust-item"><span class="icon">✅</span> Garantia 7 Dias</div>
+    </div>
+  </div>
+
+  <!-- FOOTER GOOGLE ADS COMPLIANT -->
+  <footer>
+    <div>© 2026 Basefy Marketplace. Todos os direitos reservados.</div>
+    <div class="footer-links">
+      <a href="/termos">Termos de Uso</a> · 
+      <a href="/privacidade">Política de Privacidade</a> · 
+      <a href="/reembolso">Reembolso</a> · 
+      <a href="mailto:suporte@basefy.io">Suporte</a>
+    </div>
+  </footer>
+
+  <!-- SCRIPT PARA PRESERVAR E REPASSAR UTMS DO GOOGLE ADS -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const searchParams = window.location.search;
+      if (searchParams && searchParams.length > 1) {
+        const links = document.querySelectorAll('a[href^="https://basefy.io"]');
+        links.forEach(function(link) {
+          try {
+            const url = new URL(link.href);
+            const currentParams = new URLSearchParams(window.location.search);
+            currentParams.forEach(function(value, key) {
+              url.searchParams.set(key, value);
+            });
+            link.href = url.toString();
+          } catch (e) {
+            const separator = link.href.indexOf('?') !== -1 ? '&' : '?';
+            link.href = link.href + separator + searchParams.substring(1);
+          }
+        });
+      }
+    });
+  </script>
+</body>
+</html>

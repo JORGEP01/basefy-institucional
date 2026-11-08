@@ -3,27 +3,29 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Basefy | Acessar Marketplace</title>
-  <meta name="description" content="Portal oficial de acesso ao Marketplace Basefy. Clique para ver o catálogo completo de ferramentas digitais e softwares.">
+  <title>Basefy | Compre e venda ativos digitais</title>
+  <meta name="description" content="Basefy Marketplace. Compre e venda ativos digitais, contas, serviços, itens e muito mais com entrega imediata e saldo protegido.">
   <meta name="robots" content="index, follow">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --bg: #06090f;
-      --card-bg: rgba(15, 23, 42, 0.75);
-      --border: rgba(255, 255, 255, 0.08);
-      --border-glow: rgba(0, 229, 255, 0.35);
-      --cyan: #00e5ff;
-      --cyan-glow: rgba(0, 229, 255, 0.45);
+      --bg: #0d0a14;
+      --card-bg: rgba(19, 14, 30, 0.85);
+      --border: rgba(184, 117, 250, 0.15);
+      --purple-base: #8b2cf5;
+      --purple-gradient: linear-gradient(135deg, #c084fc, #8b2cf5);
+      --purple-btn: linear-gradient(135deg, #8b2cf5, #6d28d9);
+      --purple-btn-hover: linear-gradient(135deg, #9d4edd, #7c3aed);
+      --purple-glow: rgba(139, 44, 245, 0.5);
       --green: #10b981;
-      --text: #f8fafc;
+      --text: #ffffff;
       --text-muted: #94a3b8;
       --text-dim: #64748b;
-      --font-display: 'Plus Jakarta Sans', -apple-system, sans-serif;
-      --font-body: 'Inter', -apple-system, sans-serif;
+      --font-display: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     }
 
     * {
@@ -35,8 +37,9 @@
     body {
       background-color: var(--bg);
       background-image: 
-        radial-gradient(circle at 50% 20%, rgba(0, 229, 255, 0.08) 0%, transparent 50%),
-        radial-gradient(circle at 80% 80%, rgba(24, 119, 242, 0.05) 0%, transparent 40%);
+        radial-gradient(circle at 50% 10%, rgba(139, 44, 245, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 85% 90%, rgba(123, 97, 255, 0.08) 0%, transparent 40%),
+        radial-gradient(circle at 15% 80%, rgba(16, 185, 129, 0.04) 0%, transparent 35%);
       color: var(--text);
       font-family: var(--font-body);
       min-height: 100vh;
@@ -50,28 +53,28 @@
 
     .presell-card {
       background: var(--card-bg);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
       border: 1px solid var(--border);
-      border-radius: 24px;
+      border-radius: 26px;
       max-width: 480px;
       width: 100%;
       padding: 44px 32px 36px;
       text-align: center;
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.03);
+      box-shadow: 0 24px 64px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(184, 117, 250, 0.08);
       position: relative;
       overflow: hidden;
-      animation: fadeIn 0.4s ease-out;
+      animation: fadeIn 0.35s ease-out;
     }
 
     .presell-card::before {
       content: '';
       position: absolute;
       top: 0;
-      left: 15%;
-      right: 15%;
+      left: 20%;
+      right: 20%;
       height: 2px;
-      background: linear-gradient(90deg, transparent, var(--cyan), transparent);
+      background: linear-gradient(90deg, transparent, #b875fa, transparent);
     }
 
     @keyframes fadeIn {
@@ -79,57 +82,41 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    /* LOGO */
+    /* LOGO BASEFY */
     .logo-wrap {
       display: inline-flex;
       align-items: center;
-      gap: 12px;
+      justify-content: center;
       margin-bottom: 22px;
       text-decoration: none;
-      color: #fff;
     }
 
-    .logo-mark {
-      width: 46px;
-      height: 46px;
-      border-radius: 12px;
-      background: linear-gradient(135deg, var(--cyan), #1877f2);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: var(--font-display);
-      font-weight: 900;
-      font-size: 24px;
-      color: #06090f;
-      box-shadow: 0 6px 20px rgba(0, 229, 255, 0.35);
-    }
-
-    .logo-text {
-      font-family: var(--font-display);
-      font-size: 26px;
-      font-weight: 900;
-      letter-spacing: -0.03em;
-    }
-
-    .logo-text span {
-      color: var(--cyan);
+    .logo-img {
+      height: 48px;
+      width: auto;
+      max-width: 200px;
+      object-fit: contain;
+      filter: drop-shadow(0 4px 16px rgba(139, 44, 245, 0.35));
     }
 
     /* BADGE */
+    .badge-container {
+      margin-bottom: 20px;
+    }
+
     .verified-badge {
       display: inline-flex;
       align-items: center;
       gap: 7px;
       background: rgba(16, 185, 129, 0.1);
-      border: 1px solid rgba(16, 185, 129, 0.25);
+      border: 1px solid rgba(16, 185, 129, 0.28);
       color: var(--green);
       font-size: 11px;
       font-weight: 800;
       letter-spacing: 0.05em;
       text-transform: uppercase;
-      padding: 5px 12px;
+      padding: 5px 14px;
       border-radius: 20px;
-      margin-bottom: 20px;
     }
 
     .badge-dot {
@@ -140,27 +127,35 @@
       box-shadow: 0 0 8px var(--green);
     }
 
-    /* HEADLINE */
-    h1 {
+    /* HEADLINE IDENTICA A BASE */
+    h1.hero-title {
       font-family: var(--font-display);
-      font-size: 26px;
+      font-size: 32px;
       font-weight: 900;
-      line-height: 1.25;
-      letter-spacing: -0.02em;
-      color: #fff;
-      margin-bottom: 12px;
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+      color: #ffffff;
+      margin-bottom: 8px;
+    }
+
+    .gradient-text {
+      display: block;
+      background: var(--purple-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 900;
     }
 
     p.subtitle {
-      font-size: 14px;
+      font-size: 15px;
       color: var(--text-muted);
-      line-height: 1.55;
+      line-height: 1.5;
       margin-bottom: 30px;
     }
 
-    /* THE MAIN BUTTON */
+    /* O BOTÃO PRINCIPAL */
     .btn-wrap {
-      margin-bottom: 22px;
+      margin-bottom: 20px;
     }
 
     .btn-main {
@@ -170,24 +165,24 @@
       gap: 10px;
       width: 100%;
       padding: 18px 28px;
-      background: linear-gradient(135deg, var(--cyan), #00c4f4);
-      color: #060e1a;
+      background: var(--purple-btn);
+      color: #ffffff;
       font-family: var(--font-display);
       font-size: 18px;
       font-weight: 900;
       letter-spacing: -0.01em;
       border-radius: 14px;
       text-decoration: none;
-      box-shadow: 0 8px 28px var(--cyan-glow);
+      box-shadow: 0 8px 30px var(--purple-glow);
       transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-      border: none;
+      border: 1px solid rgba(255, 255, 255, 0.18);
       cursor: pointer;
     }
 
     .btn-main:hover {
-      background: linear-gradient(135deg, #33ebff, var(--cyan));
+      background: var(--purple-btn-hover);
       transform: translateY(-2px);
-      box-shadow: 0 12px 36px rgba(0, 229, 255, 0.55);
+      box-shadow: 0 12px 38px rgba(139, 44, 245, 0.7);
     }
 
     .btn-main:active {
@@ -213,14 +208,14 @@
       margin-bottom: 26px;
     }
 
-    /* SECURITY PILLARS */
+    /* PILARES DE SEGURANÇA */
     .trust-strip {
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 16px;
       padding-top: 20px;
-      border-top: 1px solid var(--border);
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
       flex-wrap: wrap;
     }
 
@@ -259,16 +254,22 @@
     }
 
     .footer-links a:hover {
-      color: var(--cyan);
+      color: #b875fa;
     }
 
     @media (max-width: 480px) {
+      body {
+        padding: 16px;
+      }
       .presell-card {
         padding: 34px 22px 28px;
         border-radius: 20px;
       }
-      h1 {
-        font-size: 22px;
+      .logo-img {
+        height: 42px;
+      }
+      h1.hero-title {
+        font-size: 26px;
       }
       .btn-main {
         font-size: 16px;
@@ -283,24 +284,26 @@
 <body>
 
   <div class="presell-card">
-    <!-- LOGO -->
+    <!-- OFFICIAL LOGO -->
     <a href="https://basefy.io" class="logo-wrap">
-      <div class="logo-mark">B</div>
-      <div class="logo-text">Base<span>fy</span></div>
+      <img src="/logo-basefy.webp" alt="Basefy Marketplace" class="logo-img">
     </a>
 
     <!-- VERIFIED BADGE -->
-    <div>
+    <div class="badge-container">
       <span class="verified-badge">
         <span class="badge-dot"></span>
         Marketplace Oficial Verificado
       </span>
     </div>
 
-    <!-- HEADLINE -->
-    <h1>Acesse o Marketplace Basefy</h1>
+    <!-- HEADLINE IDENTICA A BASEFY -->
+    <h1 class="hero-title">
+      Compre e venda
+      <span class="gradient-text">ativos digitais</span>
+    </h1>
     <p class="subtitle">
-      Encontre ferramentas digitais, softwares profissionais e soluções para o seu negócio com entrega imediata e saldo protegido.
+      Contas, serviços, itens e muito mais com entrega imediata e saldo protegido.
     </p>
 
     <!-- O BOTÃO PRINCIPAL -->
